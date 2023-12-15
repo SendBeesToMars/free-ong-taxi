@@ -1,0 +1,17 @@
+@font-face {
+    font-family: Regular-3270;
+    src: url(resources/font/3270-Regular.woff);
+  }
+
+body{
+    /* background-color: #07130E; */
+    background-color: #001409;
+    color: #CA6300;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: Regular-3270;
+    font-size: 1.2rem;
+}
+
+main{
+    padding: 1rem;
+}
