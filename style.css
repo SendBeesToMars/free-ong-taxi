@@ -15,3 +15,17 @@ body{
 main{
     padding: 1rem;
 }
+
+textarea{
+    background-color: #001409;
+    color: #CA6300;
+    border: 0;
+    width: 100%;
+    resize: none;
+    overflow: hidden;
+    padding: 0;
+}
+
+textarea:focus{
+    outline: 0;
+}
