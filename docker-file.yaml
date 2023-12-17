@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  nginx-free-ong-taxi:
+    image: nginx:latest
+    ports:
+      - "9999:80"
+    volumes:
+      - /home/user/free-ong-taxi/:/usr/share/nginx/html
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.freeongtaxi.rule=Host(`subdomain.example.com`)"
+      - "traefik.http.routers.freeongtaxi.entrypoints=websecure"
+      - "traefik.http.routers.freeongtaxi.tls.certresolver=myresolver"
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true
