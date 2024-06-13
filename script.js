@@ -9,20 +9,20 @@ That your actions have consequences!!!`;
 let is_writing = false
 // const text_writer_interval = setInterval(text_writer, 500, friks);
 let content = document.getElementById("text");
-async function text_writer(text) {
-    friks = friks.split("\n");
+async function text_writer(text, element) {
+    let friks = text.split("\n");
 
     for (let i = 0; i < friks.length; i++) {
         for (let j = 0; j < friks[i].length; j++) {
             is_writing = true
             let char = friks[i].charAt(j);
-            content.append(char);
+            element.append(char);
             const min = 10;
             const max = 30;
             let rand_timeout = Math.floor(Math.random() * (max - min) + min);
             await new Promise(r => setTimeout(r, rand_timeout));
         }
-        content.appendChild(document.createElement("br"));
+        element.appendChild(document.createElement("br"));
         const min = 200;
         const max = 800;
         let rand_timeout = Math.floor(Math.random() * (max - min) + min);
@@ -67,4 +67,19 @@ function on_input(event) {
     this.style.height = (this.scrollHeight) + "px";
 }
 
-text_writer(friks)
+text_writer(friks, content)
+
+let pow = document.getElementById("pow");
+
+const intervalID = setInterval(its_pow_time, 1000);
+
+function its_pow_time() {
+    const pow_time = 1736166300000
+    const rn = Date.now();
+    const count_down = pow_time - rn;
+    const days = Math.floor(count_down/60/60/24/1000);
+    const hours = Math.floor(count_down/60/60/1000 % 24);
+    const mins = Math.floor(count_down/60/1000 % 60);
+    const secs = Math.floor(count_down/1000 % 60);
+    pow.innerHTML = `${days} ${hours}:${mins}:${secs}`;
+}
