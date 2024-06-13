@@ -77,9 +77,9 @@ function its_pow_time() {
     const pow_time = 1736166300000
     const rn = Date.now();
     const count_down = pow_time - rn;
-    const days = Math.floor(count_down/60/60/24/1000);
-    const hours = Math.floor(count_down/60/60/1000 % 24);
-    const mins = Math.floor(count_down/60/1000 % 60);
-    const secs = Math.floor(count_down/1000 % 60);
+    const days = Math.floor(count_down/60/60/24/1000).toString().padStart(2, '0');
+    const hours = Math.floor(count_down/60/60/1000 % 24).toString().padStart(2, '0');
+    const mins = Math.floor(count_down/60/1000 % 60).toString().padStart(2, '0');
+    const secs = Math.floor(count_down/1000 % 60).toString().padStart(2, '0');
     pow.innerHTML = `${days} ${hours}:${mins}:${secs}`;
 }
